@@ -1,7 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import fs from 'fs';
-import path from 'path';
 
 // Define the directory path
 const memesFolder = path.join(process.cwd(), 'memes');
@@ -60,4 +60,6 @@ async function getMemes() {
   }
 }
 
-getMemes();
+getMemes().catch((error) => {
+  console.error('Error running getMemes:', error);
+});
